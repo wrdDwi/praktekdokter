@@ -14,7 +14,6 @@ class JamPraktekController extends Controller
      */
     public function index()
     {
-        //
         $jam =jamPraktek::where("is_deleted",0)->get();
         return response()->json($jam) ;
     }
@@ -29,12 +28,7 @@ class JamPraktekController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
         //
