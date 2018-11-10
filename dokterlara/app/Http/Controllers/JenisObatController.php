@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\jenisObat;
 use Illuminate\Http\Request;
+use Validator;
 
 class JenisObatController extends Controller
 {
@@ -46,7 +47,7 @@ class JenisObatController extends Controller
         $item = new jenisObat([
           'nama' => $request->post('nama'),
           'is_deleted'=>'0',
-		  'create_at'=> $tanggal,
+		  'create_date'=> $tanggal,
 		  'create_by'=>$request->post('username')
         ]);
 
