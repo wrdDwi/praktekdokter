@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\User;
+use App\groupakses;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
@@ -17,7 +18,13 @@ class UserController extends Controller
         if (Auth::attempt(['email' => request('email'), 'password' => request('password')])) {
             $user = Auth::user();
             $success['token'] = $user->createToken('dokterpraktek')->accessToken;
-            return response()->json(['status' => 1,'token'=>$success['token'],'user'=>$user ], $this->successStatus);
+            $role=groupakses::where('user_id','=',$user['id'])->firstOrFail();
+            $balikan =array(
+                'userId'=>$user['id'],
+                'name'=>$user['name'],
+                'role'=>$role['role_id']
+            );
+            return response()->json(['status' => 1,'token'=>$success['token'],'user'=>$balikan ], $this->successStatus);
         } else {
             return response()->json(['status' => 0, 'msg'=>"username"], $this->successStatus);
         }

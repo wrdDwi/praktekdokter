@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
             if (res.status == '1') {
                 localStorage.setItem('tokenLogin', res.token);
                 localStorage.setItem('name', res.user.name);
-                localStorage.setItem('userId', res.user.userId);
+                localStorage.setItem('userId', res.user.userId.toString());
                 localStorage.setItem('isLoggedin', 'true');
                 this.router.navigate(['dasboard'])
                 console.log(res.token)

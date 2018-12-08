@@ -11,6 +11,6 @@ export class ConfigService {
     }
 
     getApiURL() {
-        return this.origURL;
+        return "http://localhost:8000/";
     }
 }

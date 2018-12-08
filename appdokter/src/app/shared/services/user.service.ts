@@ -17,12 +17,24 @@ export class UserService {
         //     if (this._userSession)
         //         return this._userSession.UserId.toLocaleUpperCase();
     }
-
+    get tokenApi(){
+        if (localStorage.getItem('tokenLogin')) {
+            return localStorage.getItem('tokenLogin');
+        }
+    }
+    get username(){
+        if (localStorage.getItem('name')) {
+            return localStorage.getItem('name');
+        }
+    }
 
     get roles() {
-        if (isPlatformBrowser(this.platformId))
-            if (this._userSession)
-                return this._userSession.Roles;
+        if (localStorage.getItem('role')) {
+            return localStorage.getItem('role');
+        }
+        // if (isPlatformBrowser(this.platformId))
+        //     if (this._userSession)
+        //         return this._userSession.Roles;
     }
 
     get permissions() {

@@ -1,3 +1,4 @@
+
 export interface LoginModel {
      token: string;
      msg: string;
@@ -6,6 +7,6 @@ export interface LoginModel {
 }
 export class userData{
     name: string;
-    userId: string;
+    userId: number;
     role: number;
 }
