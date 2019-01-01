@@ -1,3 +1,42 @@
-<p>
-  list-obat works!
-</p>
+<div [@routerTransition]>
+  
+  <div class="row" style="margin-top:20px;">
+    <div class="col-lg-12">
+      <table class="table table-bordered table-striped table-hover table-condensed" style="overflow:hidden;margin-bottom:-3px">
+        <thead>
+          <tr>
+            <th class="text-center" style="width:72px;">No.</th>
+            <th class="text-center" style="width:218px;">Nama</th>
+            <th class="text-center" style="width:57px;">Jenis</th>
+            <th class="text-center" style="width:137px;">Harga Jual</th>
+            <th class="text-center" style="width:134px;">Harga Beli</th>
+            <th class="text-center" style="width:104px;">Stok</th>
+            <th class="text-center" style="width:195px;">Satuan</th>
+            <th class="text-center" style="width:195px;">Tanggal Input</th>
+           
+          </tr>
+        </thead>
+     
+        <tbody>
+          <tr *ngFor="let l of listObat; let i=index">
+  
+            <td ></td>
+            <td >{{l.nama}}</td>
+            <td >{{l.jenisId}}</td>
+            <td class="text-right" >{{l.hargaJual|number:'.2-2'}}</td>
+            <td class="text-right" >{{l.hargaBeli|number:'.2-2'}}</td>
+            <td class="text-right" >{{l.stok|number}}</td>
+            <td ></td>
+            <td>{{l.CreatedDate}}</td>
+          
+  
+          </tr>
+          <tr *ngIf=" listObat.length === 0">
+            <td colspan="8" align="center">Data not available</td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </div>
+  </div>
+</div>

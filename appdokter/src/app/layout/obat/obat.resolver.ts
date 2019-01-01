@@ -10,6 +10,6 @@ export class ObatResolver implements Resolve<Obat>{
 
     }
     resolve(route: ActivatedRouteSnapshot) {
-        return this.obatService.getListObat();
+        return this.obatService.getObat(route.params['obatId']);
     }
 }

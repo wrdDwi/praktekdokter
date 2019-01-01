@@ -20,14 +20,25 @@ export class ObatService {
     private configService: ConfigService,
     private userService: UserService,
   ) {
-    this.baseUrl = configService.getApiURL + Constants.LoginUrl;
+    this.baseUrl = configService.getApiURL + Constants.ObatUrl;
   }
 
   getListObat(): Observable<Obat[]> {
     let header = new Headers();
     header.append("Content-Type", "application/json");
     header.append("Authorization", "Bearer " + this.userService.tokenApi)
+    console.log(header);
     let options = new RequestOptions({ headers: header });
-    return this.http.post<Obat[]>(`${this.baseUrl}`, '').pipe();
+    return this.http.post<Obat[]>(`${this.baseUrl}/`, '').pipe();
+  }
+  getObat(id : string): Observable<Obat> {
+    let header = new Headers();
+    header.append("Content-Type", "application/json");
+    header.append("Authorization", "Bearer " + this.userService.tokenApi);
+    let params= {
+      id: id
+    }
+    let options = new RequestOptions({ headers: header });
+    return this.http.post<Obat>(`${this.baseUrl}/getObat`, params).pipe();
   }
 }

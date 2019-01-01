@@ -25,6 +25,8 @@ export class LoginComponent implements OnInit {
     private loginForm: FormGroup;
     private loginModel: LoginModel[];
     private errMsg: string[];
+    private returnUrl: string;
+    private logged: boolean = false;
     ngOnInit() {
         this.errMsg = [];
         this.username = new FormControl('', [Validators.required]);
@@ -33,7 +35,7 @@ export class LoginComponent implements OnInit {
             username: this.username,
             password: this.password
         });
-
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
     onLoggedin() {
@@ -42,12 +44,14 @@ export class LoginComponent implements OnInit {
         console.log(paramUsername);
         this.loginservice.checkLogin(paramUsername, this.password.value).subscribe(res => {
             if (res.status == '1') {
+                this.logged = true;
                 localStorage.setItem('tokenLogin', res.token);
                 localStorage.setItem('name', res.user.name);
                 localStorage.setItem('userId', res.user.userId.toString());
                 localStorage.setItem('isLoggedin', 'true');
-                this.router.navigate(['dasboard'])
-                console.log(res.token)
+                this.router.navigate([this.returnUrl])
+                console.log(res.token);
+
             } else {
                 this.errMsg.push(res.msg);
             }

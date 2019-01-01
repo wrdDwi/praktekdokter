@@ -26,7 +26,7 @@ class UserController extends Controller
             );
             return response()->json(['status' => 1,'token'=>$success['token'],'user'=>$balikan ], $this->successStatus);
         } else {
-            return response()->json(['status' => 0, 'msg'=>"username"], $this->successStatus);
+            return response()->json(['status' => 0, 'msg'=>"username/password invalid"], $this->successStatus);
         }
 
     }

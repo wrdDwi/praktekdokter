@@ -2,12 +2,17 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListObatComponent } from './list-obat/list-obat.component';
 import { ObatRoutingModule, routeComponentObat } from './obat-routing.module';
+import { ObatService } from './obat.service';
+import { ObatResolver } from './obat.resolver';
+import { PageHeaderModule } from '../../shared';
 
 @NgModule({
   imports: [
     CommonModule,
-    ObatRoutingModule
+    ObatRoutingModule,
+    PageHeaderModule
   ],
+  providers: [ObatService, ObatResolver],
   declarations: [routeComponentObat]
 })
 export class ObatModule { }

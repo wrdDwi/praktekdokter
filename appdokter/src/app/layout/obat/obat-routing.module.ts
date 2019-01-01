@@ -8,14 +8,14 @@ import { ViewObatComponent } from './view-obat/view-obat.component';
 const routes: Routes = [
     {
         path: '',
-        component: ListObatComponent,
-        children: [
-            { path: '', redirectTo: '', pathMatch: 'full' },
-           // { path: 'create', component: ObatComponent },
-            // { path: 'modify/:obatId', component: ObatComponent, resolve: { bizTrade: '' } },
-            // { path: 'view/:obatId', component: ViewObatComponent, resolve: { bizTrade: '' } }
+        component: ListObatComponent
+        // children: [
+        //     { path: '', redirectTo: '', pathMatch: 'full' },
+        //    // { path: 'create', component: ObatComponent },
+        //     // { path: 'modify/:obatId', component: ObatComponent, resolve: { bizTrade: '' } },
+        //     // { path: 'view/:obatId', component: ViewObatComponent, resolve: { bizTrade: '' } }
 
-        ]
+        // ]
     }
 ];
 
@@ -27,7 +27,7 @@ export class ObatRoutingModule {
 }
 
 export const routeComponentObat = [
-    ListObatComponent,
+    ListObatComponent
     // ObatComponent,
     // ViewObatComponent
 ];

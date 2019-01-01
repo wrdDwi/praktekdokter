@@ -15,6 +15,12 @@ Route::post('register', 'UserController@register');
 
 Route::group(['middleware' => 'auth:api'], function () {
     Route::post('details', 'UserController@details');
+    Route::get('obat', 'ObatController@index');
+    Route::get('obat/{id}', 'ObatController@show');
+    Route::post('obat/save', 'ObatController@insert');
+    Route::put('obat/{id}', 'ObatController@update');
+    Route::delete('obat/{id}', 'ObatController@delete');
+
 });
 
 Route::get('obat', 'ObatController@index');
