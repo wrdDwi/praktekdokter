@@ -9,7 +9,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
-import { ListObatComponent } from './obat/list-obat/list-obat/list-obat.component';
+import { ListObatComponent } from './obat/list-obat/list-obat.component';
 import { AddObatComponent } from './obat/add-obat/add-obat.component';
 
 // AoT requires an exported function for factories
