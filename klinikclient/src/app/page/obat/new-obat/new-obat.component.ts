@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { JenisObat } from './obat.model';
 
 @Component({
-  selector: 'app-obat',
-  templateUrl: './obat.component.html',
-  styleUrls: ['./obat.component.css']
+  selector: 'app-new-obat',
+  templateUrl: './new-obat.component.html',
+  styleUrls: ['./new-obat.component.sass']
 })
-export class ObatComponent implements OnInit {
+export class NewObatComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
@@ -43,4 +42,5 @@ initFormObat() {
   this.jenisObats = new FormControl('', [Validators.required]);
   
 }
+
 }
