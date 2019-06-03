@@ -31,6 +31,16 @@
                     <input class="form-control" placeholder="Stock" id="stock" formControlName="stock" [ngClass]=" (stock.value)?'mandatory-valid': 'mandatory' ">
                     <p class="help-block"></p>
                 </fieldset>
+                <div class="form-group">
+                    <label>Kode Satuan</label>
+                    <select class="form-control"  formControlName="kdSatuan">
+                        <option value="1">Satuan</option>
+                        <option value="2">Strip</option>
+                        <option value="3">Botol</option>
+                        <option value="4">Kerdus</option>
+                        
+                    </select>
+                </div>
                 <fieldset class="form-group">
                     <label>Harga Beli</label>
                     <input class="form-control" placeholder="Harga Beli" id="hargaBeli" formControlName="hargaBeli" [ngClass]=" (hargaBeli.value)?'mandatory-valid': 'mandatory' ">

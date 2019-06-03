@@ -16,7 +16,7 @@ export class ObatComponent implements OnInit {
     private route: ActivatedRoute,
   ) {
   }
- // private listJenisObat = JenisObat[] = [];
+  private listJenisObat = JenisObat[] = [];
   private kdObats: FormControl;
   private namaObats: FormControl;
   private jenisObats: FormControl;
