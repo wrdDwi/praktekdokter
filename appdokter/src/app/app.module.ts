@@ -9,6 +9,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+import { NewObatComponent } from './obat/new-obat/new-obat.component';
+import { ListObatComponent } from './obat/list-obat/list-obat.component';
 
 // AoT requires an exported function for factories
 export const createTranslateLoader = (http: HttpClient) => {
@@ -36,7 +38,7 @@ export const createTranslateLoader = (http: HttpClient) => {
         }),
         AppRoutingModule
     ],
-    declarations: [AppComponent],
+    declarations: [AppComponent, NewObatComponent, ListObatComponent],
     providers: [AuthGuard],
     bootstrap: [AppComponent]
 })
