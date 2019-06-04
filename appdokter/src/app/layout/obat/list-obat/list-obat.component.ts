@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Obats } from '../obat.model';
 
 @Component({
   selector: 'app-list-obat',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-obat.component.scss']
 })
 export class ListObatComponent implements OnInit {
-
+private listObat:Obats[]=[];
   constructor() { }
 
   ngOnInit() {

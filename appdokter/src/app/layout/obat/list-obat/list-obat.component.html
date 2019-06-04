@@ -1,30 +1,48 @@
 <div [@routerTransition]>
-    <h2 class="text-muted">Obat </h2>
-    <div class="row">
-      <div class="col-md-12 col-xs-12 col-lg-12">
-        
-      </div>
+  <h2 class="text-muted">Obat </h2>
+  <div class="row">
+    <div class="col-md-12 col-xs-12 col-lg-12 right">
+      <button class="btn btn-primary">Add Obat</button>
     </div>
-    <div class="row">
-      <div class="col-md-12 col-xs-12 col-lg-12">
-          <div class="card-body table-responsive">
-              <table class="table table-hover table-striped">
-                  <thead>
-                  <tr>
-                      <th>No</th>
-                      <th>Kode Obat</th>
-                      <th>Nama Obat</th>
-                      <th>Harga Jual</th>
-                      <th>Stock</th>
-                      <th>Action</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  
-                  </tbody>
-              </table>
-          </div>
-      </div>
-    </div>
-   
   </div>
+  <div class="row">
+    <div class="col-md-12 col-xs-12 col-lg-12">
+      <div class="card-body table-responsive">
+        <table class="table table-hover table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>
+                <mfDefaultSorter by="name">Kode Obat</mfDefaultSorter>
+
+              </th>
+              <th> <mfDefaultSorter by="name">Nama Obat</mfDefaultSorter>
+              </th>
+              <th> <mfDefaultSorter by="name">Harga Jual</mfDefaultSorter></th>
+              <th> <mfDefaultSorter by="name">Stock</mfDefaultSorter></th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1.</td>
+              <td>P001</td>
+              <td>Bodrex</td>
+              <td>5000</td>
+              <td>50</td>
+              <td>edit || delete</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="6">
+                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
