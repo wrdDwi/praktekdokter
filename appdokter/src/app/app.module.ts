@@ -9,7 +9,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './shared';
+<<<<<<< HEAD
 import { UserComponent } from './layout/user/user.component';
+=======
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormModule } from './layout/form/form.module';
+>>>>>>> 43f65ddba130c73af607be9f8394a75c93519134
 
 
 // AoT requires an exported function for factories
@@ -36,7 +41,9 @@ export const createTranslateLoader = (http: HttpClient) => {
                 deps: [HttpClient]
             }
         }),
-        AppRoutingModule
+        AppRoutingModule,
+        ReactiveFormsModule,
+        FormModule
     ],
     declarations: [AppComponent, UserComponent],
     providers: [AuthGuard],

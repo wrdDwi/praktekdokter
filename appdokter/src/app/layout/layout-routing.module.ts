@@ -17,7 +17,11 @@ const routes: Routes = [
             { path: 'bs-element', loadChildren: './bs-element/bs-element.module#BsElementModule' },
             { path: 'grid', loadChildren: './grid/grid.module#GridModule' },
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
+<<<<<<< HEAD
            // { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
+=======
+            { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
+>>>>>>> 43f65ddba130c73af607be9f8394a75c93519134
             { path: 'obat', loadChildren: './obat/obat.module#ObatModule' }
         ]
     }

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListObatComponent } from './list-obat/list-obat.component';
-import { ObatComponent } from './obat/obat.component';
-import { ViewObatComponent } from './view-obat/view-obat.component';
+import { NewObatComponent } from './new-obat/new-obat.component';
+
 
 
 const routes: Routes = [
@@ -27,7 +27,7 @@ export class ObatRoutingModule {
 }
 
 export const routeComponentObat = [
-    ListObatComponent
-    // ObatComponent,
+    ListObatComponent,
+  NewObatComponent,
     // ViewObatComponent
 ];
