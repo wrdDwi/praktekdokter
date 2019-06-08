@@ -41,8 +41,9 @@ export class LoginComponent implements OnInit {
     onLoggedin() {
         this.errMsg = [];
         let paramUsername = this.username.value;
-        console.log(paramUsername);
+     console.log(paramUsername);
         this.loginservice.checkLogin(paramUsername, this.password.value).subscribe(res => {
+            console.log(res);
             if (res.status == '1') {
                 this.logged = true;
                 localStorage.setItem('tokenLogin', res.token);
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
                 localStorage.setItem('userId', res.user.userId.toString());
                 localStorage.setItem('isLoggedin', 'true');
                 this.router.navigate([this.returnUrl])
-                console.log(res.token);
+               
 
             } else {
                 this.errMsg.push(res.msg);

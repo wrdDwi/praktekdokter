@@ -41,4 +41,11 @@ export class ObatService {
     let options = new RequestOptions({ headers: header });
     return this.http.post<Obat>(`${this.baseUrl}/getObat`, params).pipe();
   }
+  saveObats(obats: Obat): Observable<Obat>{
+    let header = new Headers();
+    header.append("Content-Type", "application/json");
+    header.append("Authorization", "Bearer " + this.userService.tokenApi);
+    let options = new RequestOptions({ headers: header });
+    return this.http.post<Obat>(`${this.baseUrl}/insertObat`, obats).pipe();
+  }
 }

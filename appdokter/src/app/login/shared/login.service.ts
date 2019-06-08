@@ -30,6 +30,7 @@ export class LoginService {
             email: username,
             password: password
         }
+        //console.log(this.baseUrl);
         return this.http.post<LoginModel>(`${this.baseUrl}`, logindata).pipe();
     }
 }
