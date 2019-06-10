@@ -15,8 +15,28 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+import Vue from 'vue';
+import BootstrapVue from 'bootstrap-vue';
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+import App from './App.vue';
+import VueAxios from 'vue-axios';
+import axios from 'axios';
+import example from './components/ExampleComponent.vue';
+import Router from './router';
+//import router from './router';
+//Vue.component('App', require('./App.vue'));
+Vue.use(BootstrapVue);
 
-const app = new Vue({
-    el: '#app'
-});
+Vue.use(VueAxios, axios);
+
+
+new Vue({
+    el: '#app',
+    router:Router,
+    template: '<App/>',
+    components: {
+      example
+    },
+    render: h => h(App)
+  })
