@@ -7,12 +7,13 @@ Vue.use(Router)
 
 export default new Router({
   //  mode: 'hash', // Demo is living in GitHub.io, so required!
-    linkActiveClass: 'open active',
-    scrollBehavior: () => ({ y: 0 }),
+    // linkActiveClass: 'open active',
+    // scrollBehavior: () => ({ y: 0 }),
+    mode:'history',
     routes: [
         {
             path: '/',
-            redirect: '/home',
+           
             name: 'Home',
             component: Full,
             children:[

@@ -9,20 +9,23 @@
           <router-view></router-view>
         </div>
       </main>
-      <!-- <AppAside/> --> 
+      <AppAside/> 
     </div>
-    <!-- <AppFooter/> -->
+    <AppFooter/>
   </div>
 </template>
 
 <script>
-//import nav from '../_nav'
-import { Header, Sidebar }  from '../components/'
+import nav from '../_nav'
+import { Header, Sidebar, Aside as AppAside, Footer as AppFooter}  from '../components/'
 export default {
   name: 'full',
   components: {
     Header,
-   
+   Sidebar,
+   AppAside,
+   nav,
+   AppFooter
   },
   data () {
     return {
@@ -34,7 +37,7 @@ export default {
       return this.$route.name
     },
     list () {
-     // return this.$route.matched
+      return this.$route.matched
     }
   }
 }
