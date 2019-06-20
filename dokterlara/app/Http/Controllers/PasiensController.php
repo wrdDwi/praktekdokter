@@ -20,7 +20,7 @@ class PasiensController extends Controller
                 return response()->json($valid->errors(),200);
         }
 
-        $item = new Pasien([
+        $item = [
           'kd_pasien' => $request->post('pasienId'),
           'nama_lengkap' => $request->post('nama'),
 		  'tmp_lahir'=>$request->post('tmpLahir'),
@@ -33,7 +33,7 @@ class PasiensController extends Controller
           'create_date'=>$tanggal,
 		  'is_deleted'=>'0',
 		  'create_by'=>$request->post('username')
-        ]);
+        ];
 
         $item->save();
         return response()->json($item,200);
