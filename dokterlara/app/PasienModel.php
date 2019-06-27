@@ -63,7 +63,7 @@ class PasienModel
         if (isset($where['kd_pasien'])) {
             array_push($multiplewhere, ['kd_pasien'], '=', $where['kd_pasien']);
         }
-        $pasiens = Pasien::where($multiplewhere) - get();
+        $pasiens = Pasien::where($multiplewhere)-> get();
         if (sizeof($pasiens) > 0) {
             foreach ($pasiens as $pasien) {
                 array_push(
@@ -91,9 +91,10 @@ class PasienModel
     }
     public function updatePasien($array)
     {
+        $dt = Carbon::now();
         $id_pasien = $array['id_pasien'];
         unset($array['id_pasien']);
-
+        $array['modified_date']=$dt;
         $updatePasien = Pasien::where('id', '=', $id_pasien)->update($array);
         if ($updatePasien) {
             return ['status' => '1', 'Pasien Sukses Di ubah'];

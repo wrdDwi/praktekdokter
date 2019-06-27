@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\jamPraktek;
 use Illuminate\Http\Request;
+use App\JamPraktekModel;
+use Carbon\Carbon;
 
 class JamPraktekController extends Controller
 {
@@ -12,10 +14,17 @@ class JamPraktekController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private $jamModel = null;
+    private $tanggal=null;
+    private function __construct()
+    {
+        $this->jamModel = new JamPraktekModel();
+        $this->tanggal=Carbon::now();
+    }
     public function index()
     {
-        $jam =jamPraktek::where("is_deleted",0)->get();
-        return response()->json($jam) ;
+      
+        return response()->json( $this->jamModel->GetAllJamPraktek(),200) ;
     }
 
     /**
@@ -41,7 +50,7 @@ class JamPraktekController extends Controller
         $item = new jamPraktek([
           'waktu' => $request->post('jam'),
           'is_deleted'=>'0',
-		  'create_at'=> $tanggal,
+		  'create_at'=> $this->tanggal,
 		  'create_by'=>$request->post('username')
         ]);
 
@@ -69,9 +78,9 @@ class JamPraktekController extends Controller
     public function edit($id)
     {
         //
-        $jam=jamPraktek::findOrFail($id);
+
         
-        return Response()->json($jam,200);
+        return Response()->json($this->jamModel->getJamPraktek($id),200);
     }
 
     /**
@@ -84,15 +93,15 @@ class JamPraktekController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $jam=jamPraktek::findOrFail($id);
-        $item = new jenisObat([
+       
+        $item =[
+            'id_jam'=>$id,
             'waktu' => $request->post('jam'),
-            'is_deleted'=>'0',
-            'modified_at'=> $tanggal,
+           'modified_at'=>$this->tanggal,
             'modified_by'=>$request->post('username')
-          ]);
-        $jam->update($item);
-        return Response()->json($jam,200);
+          ];
+      
+        return Response()->json($this->jamModel->updateJamPraktek($item),200);
     }
 
     /**
@@ -104,14 +113,9 @@ class JamPraktekController extends Controller
     public function destroy($id)
     {
         //
-        $jam=jamPraktek::findOrFail($id);
-        $item = new jamPraktek([
-            'is_deleted'=>'1',
-            'modified_at'=> $tanggal,
-            'modified_by'=>$request->post('username')
-          ]);
-        $jam->update($item);
-        return Response()->json(null,204);
+      
+       
+        return Response()->json($this->jamModel->deleteJampraktek($id),204);
     }
     private function validations(Request $request){
         $rules = array(
